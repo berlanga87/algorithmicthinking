@@ -8,8 +8,6 @@ These are the functions for Module 2, including: \
 from collections import deque
 import random
 
-EX_GRAPH0 = {0:[1,4,5],1:[2,6],2:[3],3:[0],4:[1],5:[2],6:[],7:[5,8,9,10],8:[7,9,10],9:[7,8,10],10:[7,8,9]}
-
 def bfs_visited(ugraph, start_node):
 	"""Takes the undirected graph ugraph and the node start_node and returns \
 	the set consisting of all nodes that are visited by a breadth-first search \
@@ -26,9 +24,6 @@ def bfs_visited(ugraph, start_node):
 				visited = set(visited)
 				queue.append(node)
 	return visited
-
-
-#bfs_visited(EX_GRAPH0,0)
 
 def cc_visited(ugraph):
 	"""Takes the undirected graph ugraph and returns a list of sets, where each \
@@ -48,10 +43,6 @@ def cc_visited(ugraph):
 		#print "remaining_nodes after: "+ str(len(remaining_nodes))
 	return components
 
-#cc_visited(EX_GRAPH0)
-
-
-
 def largest_cc_size(ugraph):
 	"""Takes the undirected graph ugraph and returns the size (an integer) of the\
 	largest connected component in ugraph."""
@@ -62,8 +53,6 @@ def largest_cc_size(ugraph):
 	 		max_path = len(path)
 	return max_path
 
-#largest_cc_size(EX_GRAPH0)
-
 def remove_nodes(graph, nodes):
 	"""Receives an undirected graph and returns said graph without nodes and edges \
 	included in nodes"""
@@ -73,8 +62,6 @@ def remove_nodes(graph, nodes):
 				new_graph[node]=[edge for edge in graph[node] if edge not in nodes]
 	return new_graph
 			
-				
-
 def compute_resilience(ugraph, targets):
 	"""implement a function that takes an undirected graph and a list of nodes \
 	that will be attacked. You will remove these nodes (and their edges) from the\
@@ -88,8 +75,6 @@ def compute_resilience(ugraph, targets):
 		max_path = largest_cc_size(new_graph)
 		results.append(max_path)
 	return results
-
-#compute_resilience(EX_GRAPH0, [7])
 
 
 
